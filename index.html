@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="imageContainer">
+        <img src="pic-light.svg" alt="love it undraw" id="image">
+    </div>
+
+    <div class="playground">
+        <h1 class="playgroundTitle"> LIGHT PLAGROUND</h1>
+        <label class="toggleContainer">
+            <input type="checkbox">
+            <div class="slider round"></div>
+        </label>
+    </div>
+
+    <script>
+        const toggleContainer = document.querySelector('.toggleContainer')
+        const checkbox = document.querySelector('input[type= "checkbox"]')
+        const slider = document.querySelector('.slider')
+        const playgroundTitle = document.querySelector('.playgroundTitle')
+        const image = document.getElementById('image')
+
+
+        function imageMode(color){
+            image.src = `pic-${color}.svg`
+        }
+        function darkMode(){
+            playgroundTitle.textContent = 'DARK PLAYGROUND'
+            imageMode('dark');
+        }
+
+        function lightMode(){
+            playgroundTitle.textContent = 'LIGHT PLAYGROUND'
+            imageMode('light')
+        }
+
+
+
+        function switchMode(event){
+            //console.log(event) -> checked: true;
+
+            if(event.target.checked){
+                document.documentElement.setAttribute('data-theme', 'dark')
+                darkMode();
+
+            } else{
+                document.documentElement.setAttribute('data-theme', 'light')
+                lightMode();
+            }
+
+
+        }
+
+        checkbox.addEventListener('change', switchMode);
+    </script>
+    
+</body>
+</html>

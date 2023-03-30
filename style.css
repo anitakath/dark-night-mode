@@ -1,0 +1,105 @@
+
+
+:root{
+    --backgroundColor: white;
+    --primaryColor: cadetblue;
+    --secondaryColor: #73D3EC;
+    --fontColorOne: hsl(240, 100%, 97%);
+    --fontColorTwo: black;
+    
+}
+
+[data-theme = 'dark']{
+    --backgroundColor: black;
+    --primaryColor: grey;
+    --secondaryColor: #9814CB;
+    --fontColorOne: black;
+    --fontColorTwo: #7c4e7c;
+}
+
+
+body{
+    background-color: var(--backgroundColor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+
+}
+
+.imageContainer{
+    margin-right: 50px;
+}
+
+.playground{
+    background-color: var(--secondaryColor);
+    width: 50vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 50px;
+}
+
+.playgroundTitle{
+    color: var(--fontColorOne)
+}
+
+.toggleContainer{
+    background-color: var(--primaryColor);
+    width: 200px;
+    height: 100px;
+    display: inline-block;
+    position: relative;
+    border-radius: 30px;
+
+}
+
+.toggleContainer input{
+   display: none;
+}
+
+.slider{
+    
+    position: absolute;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    right: 0;
+    top: 0;
+    transition: 0.4s
+}
+
+.slider::before{
+    background: white;
+    bottom: 4px;
+    content: " ";
+    height: 90px;
+    left: 4px;
+    position: absolute;
+    transition: 0.4s;
+    width: 90px;
+}
+
+input:checked + .slider::before{
+    background-color: grey;
+}
+
+input:checked + .slider{
+    background: black
+}
+
+input:checked + .slider::before{
+    transform: translateX(90px);
+}
+
+.slider.round{
+    border-radius: 30px;
+    background-color: transparent;
+}
+
+.slider.round::before{
+    border-radius: 30px;
+}
